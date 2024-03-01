@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doceria Doce Amor - Carrinho de Compras</title>
+    <link <a href="OTalDo.css" rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffcccc;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            top: 30px;
+            position: absolute;
+        }
+
+        .product {
+            margin-bottom: 20px;
+        }
+
+        .product h2 {
+            margin: 0;
+        }
+
+        .product button {
+            background-color: #ff6699;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .product button:hover {
+            background-color: #ff3366;
+        }
+
+        #cart {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        #cart div {
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            color: #ff3366;
+        }
+
+        h2 {
+            color: #ff6699;
+        }
+
+        h3 {
+            color: #ff3366;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="./assets/fundocarrinho.jpg";
+    background-size: cover;
+    background-position: center; >
+    <div class="container">
+        <h1>Doceria Doce Amor</h1>
+
+        <div class="product">
+            <h2>Brownie</h2>
+            <button onclick="addToCart('Brownie', 5.50)">Adicionar ao Carrinho</button>
+        </div>
+
+        <div class="product">
+            <h2>Bento Cake</h2>
+            <button onclick="addToCart('Bento Cake', 10.00)">Adicionar ao Carrinho</button>
+        </div>
+
+        <div class="product">
+            <h2>Fatia de Bolo</h2>
+            <button onclick="addToCart('Fatia de Bolo', 20.00)">Adicionar ao Carrinho</button>
+        </div>
+
+        <div class="product">
+            <h2>Bolo de Pote</h2>
+            <button onclick="addToCart('Bolo de Pote', 12.00)">Adicionar ao Carrinho</button>
+        </div>
+
+        <div class="product">
+            <h2>Cookie</h2>
+            <button onclick="addToCart('Cookie', 6.00)">Adicionar ao Carrinho</button>
+        </div>
+
+        <h2>Carrinho de Compras</h2>
+        <div id="cart"></div>
+        <br>
+        <br>
+
+    </div>
+
+    <script>
+        let cart = [];
+
+        function addToCart(item, price) {
+            cart.push({ item, price });
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartDiv = document.getElementById('cart');
+            cartDiv.innerHTML = '';
+
+            let total = 0;
+
+            cart.forEach(item => {
+                cartDiv.innerHTML += `<div>${item.item} - R$ ${item.price.toFixed(2)}</div>`;
+                total += item.price;
+            });
+
+            cartDiv.innerHTML += `<h3>Total: R$ ${total.toFixed(2)}</h3>`;
+        }
+
+    </script>
+</body>
+
+</html>
